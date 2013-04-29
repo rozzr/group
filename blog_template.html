@@ -1,0 +1,18 @@
+<div id="right">
+<p><h3 id="posts"><?php echo $post['title']; ?></h3> <br> </p>
+
+   <ol class="postlist">
+      
+         <cite>
+          <div id="post_number">
+            This is post number: <?php echo $post['id']; ?>
+          </div>
+          <br>
+			<?php echo $post['username']; ?></a>
+         </cite> Says: <?php echo $post['post']; ?><br />
+           <small class="commentmetadata">
+             <a href="#comment-1" title=""><?php echo $post['date']; ?></a>
+           </small>
+        </li>
+   </ol>
+</div>

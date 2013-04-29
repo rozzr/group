@@ -1,0 +1,41 @@
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js">
+  </script>
+  <script type="text/javascript">
+	$(document).ready(function(){
+  
+	  $("#submit<?php echo $check?>").click(function(event) {
+	  
+		var comment= $('#comentariu<?php echo $check?>').val();
+		var name="<?php Print($username) ?>";
+		var id=$('#comment_post_ID<?php echo $check?>').val();
+		$.post("commentpost.php", {comment: comment,name: name, id: id},
+		 
+		function (data) {
+			if (!data) {
+				$("#submit").append("Failed to reach server. Login Error.");
+			} else {
+				alert(data);
+			}
+		});
+		$("#container").load('blog.php')
+		{
+			return false;
+		}; 
+		return false;
+
+	  });
+
+});
+</script>
+<div id="comment">
+<form>
+    <p>
+       <label>Comment:  </label><br /><textarea id="comentariu<?php echo $check?>" name="comentariu<?php echo $check?>" cols="100" rows="3"></textarea><br /><br /><br />
+   </p>
+   <p>
+       <input name="submit<?php echo $check?>" id="submit<?php echo $check?>" tabindex="5" value="Submit Comment" type="submit">
+       <input name="comment_post_ID<?php echo $check?>" id="comment_post_ID<?php echo $check?>" value=<?php echo $check ?> type="hidden">
+       
+   </p>
+</form>
+</div>
